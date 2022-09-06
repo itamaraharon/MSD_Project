@@ -1,0 +1,8 @@
+version: "3.3"
+
+service:
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
