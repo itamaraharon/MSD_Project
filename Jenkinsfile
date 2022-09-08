@@ -1,8 +1,9 @@
 pipeline{
-
+	
 	agent {label 'linux'}
 
 	environment {
+		NEXT_VERSION = nextVersion(writeVersion: true)
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
 	}
 
@@ -18,7 +19,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t itamara/App:latest .'
+				sh 'docker build -t itamara/App:$NEXT_VERSION .'
 			}
 		}
 
